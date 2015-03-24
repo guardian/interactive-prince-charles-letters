@@ -1,25 +1,26 @@
 <div class="guInteractive">
-    <h1>Interactive project template</h1>
 
-    <button class="submit-input">Test</button>
-    <div class="container"></div>
+    <div class='guSlice guHeader'>
+        <div class='guContainer'>
+            <h1 class='f-headline'>Letters from Prince Charles</h1>
+            <p class='f-bodyCopy'>At least 27 handwritten letters by Prince Charles, known as the black spider memos, have been disclosed after a long legal battle spanning nearly a decade.</p>
 
-    <!-- Mustache template -->
-    <table class="videogames-table">
-        <thead>
-            <tr>
-                <th class="column-header" data-sort="title">Title</th>
-                <th class="column-header" data-sort="firstrelease">Year</th>
-            </tr>
-        </thead>
-        <tbody>
-        {{#rows}}
-            <tr>
-                <td>{{title}}</td>
-                <td>{{firstrelease}}</td>
-            </tr>
-        {{/rows}}
-        </tbody>
-    </table>
+            <shareTemplate />
+        </div>
+    </div>
+
+    <div class='guSlice guContent'>
+        <div class='guContainer'>
+            <navTemplate />
+        </div>
+    </div>
+
+    <div class='guSlice guLetters'>
+        <div class='guContainer'>
+            <letterTemplate />
+        </div>
+    </div>
+
+
     
 </div>

@@ -1,9 +1,17 @@
 define([
-    'json!data/sampleData.json',
-    'iframe-messenger'
+    'ractive',
+    'get',
+    'rvc!templates/appTemplate',
+    'rvc!templates/shareTemplate',
+    'rvc!templates/navTemplate',
+    'rvc!templates/LetterTemplate'
 ], function(
-    sampleData,
-    iframeMessenger
+    Ractive,
+    get,
+    AppTemplate,
+    ShareTemplate,
+    NavTemplate,
+    LetterTemplate
 ) {
    'use strict';
 
@@ -11,11 +19,26 @@ define([
         // DEBUG: What we get given on boot
         console.log(el, context, config, mediator);
 
-        // Load local JSON data
-        console.log(sampleData);
+        var base = new AppTemplate({
+            el: el,
+            components: {
+                shareTemplate: ShareTemplate,
+                navTemplate: NavTemplate,
+                letterTemplate: LetterTemplate
+            }
+        })
 
-        // Enable iframe resizing on the GU site
-        iframeMessenger.enableAutoResize();
+        var SPREADSHEET_KEY = '1wtPiBdw2T5VGOIpWsXWxPsnCDrsE3hAsJ2H9LdG-G0A';
+        get('http://interactive.guim.co.uk/spreadsheetdata/'+SPREADSHEET_KEY+'.json')
+            .then(JSON.parse)
+            .then(function(json){
+
+                        
+                base.set('letters', json.sheets.Sheet1);
+
+                console.log(json.sheets.Sheet1)
+            });
+
     }
 
     return {

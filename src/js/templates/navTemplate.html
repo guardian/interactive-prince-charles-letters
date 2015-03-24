@@ -1,0 +1,92 @@
+
+<div class='navContainer'>
+
+	<div class='nacType'>
+		<div class='navLabel f-headline'>Letters by recipient</div>
+		<div class='navBtns'>
+			{{#letters:i}}
+				<div class='navBtn f-bodyCopy'><div class='navNumber f-textSans'>{{i +1}}</div>{{recipient}}</div>
+			{{/letters}}
+		</div>
+	</div>
+
+</div>
+
+
+<style>
+
+.navLabel {
+	font-size: 25px;
+	position: relative;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.navLabel::before {
+	content: '';
+	width: 108px;
+	height: 1px;
+	background: #dfdfdf;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.navBtn {
+	display: inline-block;
+	margin-right: 25px;
+	font-size: 18px;
+	line-height: 40px;
+}
+
+.navNumber {
+	width: 30px;
+	height: 30px;
+	background: #e6711b;
+	border-radius: 20px;
+	color: #fff;
+	display: inline-block;
+	text-align: center;
+	line-height: 30px;
+	font-size: 14px;
+	margin-right: 5px;
+}
+
+@media (min-width: 440px){
+	
+}
+
+@media (min-width: 740px){
+	
+}
+
+@media (min-width: 980px){
+	
+}
+
+@media (min-width: 1140px){
+	.navLabel {
+		font-size: 30px;
+	}
+
+}
+
+
+@media (min-width: 1300px){
+	.navContainer {
+		
+		
+	}
+
+}
+
+
+</style>
+
+<script>
+	component.exports = {
+
+	}
+
+
+</script>
