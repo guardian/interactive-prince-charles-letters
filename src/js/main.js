@@ -4,14 +4,16 @@ define([
     'rvc!templates/appTemplate',
     'rvc!templates/shareTemplate',
     'rvc!templates/navTemplate',
-    'rvc!templates/LetterTemplate'
+    'rvc!templates/LetterTemplate',
+    'rvc!templates/twitterTemplate',
 ], function(
     Ractive,
     get,
     AppTemplate,
     ShareTemplate,
     NavTemplate,
-    LetterTemplate
+    LetterTemplate,
+    TwitterTemplate
 ) {
    'use strict';
 
@@ -24,7 +26,8 @@ define([
             components: {
                 shareTemplate: ShareTemplate,
                 navTemplate: NavTemplate,
-                letterTemplate: LetterTemplate
+                letterTemplate: LetterTemplate,
+                twitterTemplate: TwitterTemplate
             }
         })
 
@@ -41,7 +44,14 @@ define([
                 base.set('config', json.sheets.config[0]);       
                 base.set('letters', json.sheets.letters);
                 base.set('annotations', json.sheets.annotations);
-                console.log(json.sheets)
+                
+                //parse url for deep linking
+                if(window.location.hash != ''){
+                    var id = window.location.hash.replace('#letter', '');
+                    base.find('#letter-' + id).scrollIntoView();
+                }
+
+
             });
 
     }

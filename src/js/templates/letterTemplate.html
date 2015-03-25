@@ -2,7 +2,9 @@
 	
 
 	<div class='colA'>
-		<div class='letterNumber f-headline'>{{id}}</div>
+		<div class='letterNumber f-headline'>{{id}}
+			<twitterTemplate />
+		</div>
 		<div class='letterInfo'>
 
 			<div class='letterDate f-textSans'>{{date}}</div>
@@ -58,7 +60,7 @@
 	color: #e6711b;
 	font-size: 56px;
 	width: 64px;
-	text-align: center;
+	text-align: left;
 	float: left;
 }
 
@@ -275,7 +277,8 @@
 			},
 			pageImages: function(){
 				var p =  this.get('pages');
-				if( p == undefined){
+				console.log(p)
+				if( p == ''){
 					return 0
 				} else {
 					return new Array(p)

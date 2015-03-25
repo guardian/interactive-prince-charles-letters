@@ -4,13 +4,13 @@
   "description": "Guardian interactive project.",
   "repository": {
     "type": "git",
-    "url": "git://github.com/fcage/spider-memos.git"
+    "url": "git://github.com/guardian/spider-memos.git"
   },
   "author": "Guardian Interactive",
   "license": "Apache 2.0",
   "config": {
     "port": 9000,
-    "s3_folder": "2015/03/spider-memos"
+    "s3_folder": "2015/03/prince-charles-spider-memos"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
