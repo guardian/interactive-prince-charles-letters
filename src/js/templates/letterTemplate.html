@@ -10,8 +10,10 @@
 			<div class='letterDate f-textSans'>{{date}}</div>
 			<div class='letterRecipient f-bodyHeading'>{{recipient}}</div>
 			{{#topic}}<div class='letterTopic f-bodyCopy'>{{topic}}</div>{{/topic}}
-			{{#pageImages:i}}<div class='letterImage'><img src ='http://s3.amazonaws.com/s3.documentcloud.org/documents/{{docid}}/pages/{{doclink}}-p{{i+1}}-small.gif' ></div>{{/pageImages}}
-			{{#docurl}}<a class='docLink' href=''><div class='viewDocument f-textSans'>View original document</div></a>{{/docurl}}
+			{{#pageImages:i}}
+				<div class='letterImage'><a class='docLink' href='{{docurl}}'><img src ='http://s3.amazonaws.com/s3.documentcloud.org/documents/{{docid}}/pages/{{doclink}}-p{{i+1}}-small.gif' ></a></div>
+			{{/pageImages}}
+			{{#docurl}}<a class='docLink' href='{{docurl}}'><div class='viewDocument f-textSans'>View original document</div></a>{{/docurl}}
 
 		</div>
 	</div>
@@ -80,6 +82,7 @@
 
 .letterImage img {
 	width: 100%;
+	height: auto;
 }
 
 .letterRecipient {
@@ -181,7 +184,8 @@
 
 	.rowExtract {
 		background: url(@@assetPath@@/imgs/quote.svg) 0 20px no-repeat;
-		background-size: 50px;
+		background-size: 54px 50px;
+
 	}
 
 	.extract {
