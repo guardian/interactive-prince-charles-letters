@@ -1,4 +1,4 @@
-<div class='guLetter' id='letter-{{id}}'>
+<div class='guLetter' id='letter-{{id}}' >
 	
 
 	<div class='colA'>
@@ -8,7 +8,7 @@
 			<div class='letterDate f-textSans'>{{date}}</div>
 			<div class='letterRecipient f-bodyHeading'>{{recipient}}</div>
 			{{#topic}}<div class='letterTopic f-bodyCopy'>{{topic}}</div>{{/topic}}
-			{{#img}}<div class='letterImage'><img src ='{{img}}' ></div>{{/img}}
+			{{#pageImages:i}}<div class='letterImage'><img src ='http://s3.amazonaws.com/s3.documentcloud.org/documents/{{docid}}/pages/{{doclink}}-p{{i+1}}-small.gif' ></div>{{/pageImages}}
 			{{#docurl}}<a class='docLink' href=''><div class='viewDocument f-textSans'>View original document</div></a>{{/docurl}}
 
 		</div>
@@ -17,10 +17,16 @@
 	<div class='colB'>
 		{{#rows}}
 		<div class='row'>
+			
 
 			{{#excerpt}}
 			<div class='rowStack rowExtract'>
-				<div class='extract f-textSans'>{{excerpt}}</div>
+
+				<div class='extract f-textSans'>
+					{{#imageurl}}
+					<img src='{{imageurl}}' >
+				{{/imageurl}}
+					{{excerpt}}</div>
 			</div>
 			{{/excerpt}}
 
@@ -62,10 +68,12 @@
 }
 
 .letterImage {
-	max-width: 150px;
+	width: 30%;
 	border: 1px solid #f1f1f1;
 	min-height: 100px;
 	padding: 10px;
+	float: left;
+	margin: 5px 5px 5px 0 ;
 }
 
 .letterImage img {
@@ -82,16 +90,14 @@
 	font-size: 18px;
 }
 
-.letterImage {
-	margin: 10px 0 5px 0 ;
-}
-
 .viewDocument {
 	font-size: 14px;
 }
 
 .docLink {
 	text-decoration: none;
+	width: 100%;
+	float: left;
 }
 
 .row {
@@ -104,6 +110,11 @@
 .rowStack {
 	width: 100%;
 
+}
+
+.rowStack img {
+	width: 100%;
+	border: 1px solid #fff5e9;
 }
 
 .rowExtract {
@@ -251,6 +262,9 @@
 </style>
 
 <script>
+
+
+
 	component.exports = {
 
 		computed: {
@@ -258,7 +272,20 @@
 				var id = this.get('id');
 				var annotations = this.get('annotations');
 				return annotations.filter(function(d){ return (d.id == id) ? true : false; })
+			},
+			pageImages: function(){
+				var p =  this.get('pages');
+				if( p == undefined){
+					return 0
+				} else {
+					return new Array(p)
+				}
+				
 			}
+		},
+		decorators: {
+			
+	
 		}
 
 	}
