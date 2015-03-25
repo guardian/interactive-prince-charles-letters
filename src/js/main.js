@@ -28,12 +28,17 @@ define([
             }
         })
 
+        base.on('navTemplate.scrollTo', function(e, id){
+            base.find('#letter-' + id).scrollIntoView();
+        })
+
         var SPREADSHEET_KEY = '1wtPiBdw2T5VGOIpWsXWxPsnCDrsE3hAsJ2H9LdG-G0A';
         get('http://interactive.guim.co.uk/spreadsheetdata/'+SPREADSHEET_KEY+'.json')
             .then(JSON.parse)
             .then(function(json){
 
-                        
+                
+                base.set('config', json.sheets.config[0]);       
                 base.set('letters', json.sheets.letters);
                 base.set('annotations', json.sheets.annotations);
                 console.log(json.sheets)

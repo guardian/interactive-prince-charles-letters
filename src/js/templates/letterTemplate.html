@@ -1,30 +1,37 @@
-<div class='guLetter'>
+<div class='guLetter' id='letter-{{id}}'>
 	
 
 	<div class='colA'>
-		<div class='letterNumber f-headline'>1</div>
+		<div class='letterNumber f-headline'>{{id}}</div>
 		<div class='letterInfo'>
 
-			<div class='letterDate f-textSans'>2 May 2000</div>
-			<div class='letterRecipient f-bodyHeading'>Theresa May</div>
-			<div class='letterTopic f-bodyCopy'>Topic goes here</div>
-			<div class='letterImage'></div>
-			<a class='docLink' href=''><div class='viewDocument f-textSans'>View original document</div></a>
+			<div class='letterDate f-textSans'>{{date}}</div>
+			<div class='letterRecipient f-bodyHeading'>{{recipient}}</div>
+			{{#topic}}<div class='letterTopic f-bodyCopy'>{{topic}}</div>{{/topic}}
+			{{#img}}<div class='letterImage'><img src ='{{img}}' ></div>{{/img}}
+			{{#docurl}}<a class='docLink' href=''><div class='viewDocument f-textSans'>View original document</div></a>{{/docurl}}
 
 		</div>
 	</div>
 
 	<div class='colB'>
-
+		{{#rows}}
 		<div class='row'>
+
+			{{#excerpt}}
 			<div class='rowStack rowExtract'>
-				<div class='extract f-textSans'>The supreme court’s judgment on whether the government unlawfully blocked the publication of a series of secret letters written by Prince Charles is due to be made public on Thursday next week, court officials have announced.</div>
+				<div class='extract f-textSans'>{{excerpt}}</div>
 			</div>
+			{{/excerpt}}
+
+			{{#annotation}}
 			<div class='rowStack'>
-				<div class='annotation f-bodyCopy'>This was referring to TK topic that would mean this and this and this. maybe we need more more text to go here.  This was referring to TK topic that would mean this and this and this. maybe we need more more text to go here.</div>
+				<div class='annotation f-bodyCopy'>{{annotation}}</div>
 			</div>
+			{{/annotation}}
 
 		</div>
+		{{/rows}}
 
 	</div>
 	<div class='colC f-textSans'><a href='#'>^ Back to top</a></div>
@@ -55,9 +62,14 @@
 }
 
 .letterImage {
-	width: 100%;
-	border: 1px solid #f6f6f6;
+	max-width: 150px;
+	border: 1px solid #f1f1f1;
 	min-height: 100px;
+	padding: 10px;
+}
+
+.letterImage img {
+	width: 100%;
 }
 
 .letterRecipient {
@@ -85,6 +97,7 @@
 .row {
 	width: 100%;
 	border-bottom: 1px dotted #eaeaea;
+	margin-bottom: 20px;
 	
 }
 
@@ -175,7 +188,7 @@
 	}
 
 	.letterNumber {
-		font-size: 72px;
+		font-size: 60px;
 	}
 	.letterRecipient {
 		font-size: 30px;
@@ -193,7 +206,7 @@
 	}
 
 	.letterNumber {
-		font-size: 96px;
+		font-size: 60px;
 		width: 108px;
 		margin-right: 20px;
 	}
@@ -223,7 +236,7 @@
 	}
 
 	.letterNumber {
-		font-size: 106px;
+		font-size: 72px;
 	}
 
 	.letterInfo {
@@ -236,3 +249,23 @@
 
 
 </style>
+
+<script>
+	component.exports = {
+
+		computed: {
+			rows: function(){
+				var id = this.get('id');
+				var annotations = this.get('annotations');
+				return annotations.filter(function(d){ return (d.id == id) ? true : false; })
+			}
+		}
+
+	}
+
+
+
+</script>
+
+
+

@@ -5,7 +5,7 @@
 		<div class='navLabel f-headline'>Letters by recipient</div>
 		<div class='navBtns'>
 			{{#letters:i}}
-				<div class='navBtn f-bodyCopy'><div class='navNumber f-textSans'>{{i +1}}</div>{{recipient}}</div>
+				<div on-click='scrollTo:{{id}}' class='navBtn f-bodyCopy'><div class='navNumber'></div><div class='navName'>{{recipient}}</div></div>
 			{{/letters}}
 		</div>
 	</div>
@@ -15,8 +15,12 @@
 
 <style>
 
+.navContainer {
+	padding: 0 10px;
+}
+
 .navLabel {
-	font-size: 25px;
+	font-size: 18px;
 	position: relative;
 	padding-top: 15px;
 	padding-bottom: 15px;
@@ -34,22 +38,32 @@
 
 .navBtn {
 	display: inline-block;
-	margin-right: 25px;
-	font-size: 18px;
-	line-height: 40px;
+	width: 45%;
+	margin-right: 15px;
+	font-size: 14px;
+	line-height: 30px;
+	color: #005689;
 }
 
 .navNumber {
-	width: 30px;
-	height: 30px;
-	background: #e6711b;
+	width: 20px;
+	height: 20px;
+
+
 	border-radius: 20px;
-	color: #fff;
-	display: inline-block;
+	background: #e6711b url(@@assetPath@@/imgs/lettericon.svg) center no-repeat;
+	background-size: 20px;
+
+	float: left;
 	text-align: center;
-	line-height: 30px;
-	font-size: 14px;
+	line-height: 20px;
+	font-size: 12px;
 	margin-right: 5px;
+}
+
+.navName {
+	line-height: 30px;
+	display: inline-block;
 }
 
 @media (min-width: 440px){
@@ -57,7 +71,27 @@
 }
 
 @media (min-width: 740px){
-	
+	.navContainer {
+		padding: 0 ;
+	}
+
+	.navLabel {
+		font-size: 24px;
+	}
+
+	.navBtn {
+		font-size: 18px;
+		padding-bottom: 15px;
+		width: 23%;
+	}
+	.navNumber {
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
+		font-size: 14px;
+
+	}
+
 }
 
 @media (min-width: 980px){
@@ -78,11 +112,3 @@
 
 
 </style>
-
-<script>
-	component.exports = {
-
-	}
-
-
-</script>
