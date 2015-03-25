@@ -18,7 +18,7 @@ div {
 
 
 .guHeader {
-
+	padding-bottom: 20px;
 	background: #fff;
 
 	
@@ -42,6 +42,11 @@ div {
 
 .guContent {
 	background: #f6f6f6;
+
+}
+
+.guContent .guContainer {
+	padding: 20px 0;
 }
 
 .guContainer {

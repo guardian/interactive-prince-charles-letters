@@ -34,9 +34,9 @@ define([
             .then(function(json){
 
                         
-                base.set('letters', json.sheets.Sheet1);
-
-                console.log(json.sheets.Sheet1)
+                base.set('letters', json.sheets.letters);
+                base.set('annotations', json.sheets.annotations);
+                console.log(json.sheets)
             });
 
     }

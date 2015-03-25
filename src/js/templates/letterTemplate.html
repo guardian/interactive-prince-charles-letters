@@ -1,13 +1,34 @@
 <div class='guLetter'>
+	
 
 	<div class='colA'>
-a
+		<div class='letterNumber f-headline'>1</div>
+		<div class='letterInfo'>
 
+			<div class='letterDate f-textSans'>2 May 2000</div>
+			<div class='letterRecipient f-bodyHeading'>Theresa May</div>
+			<div class='letterTopic f-bodyCopy'>Topic goes here</div>
+			<div class='letterImage'></div>
+			<a class='docLink' href=''><div class='viewDocument f-textSans'>View original document</div></a>
+
+		</div>
 	</div>
 
 	<div class='colB'>
-b
+
+		<div class='row'>
+			<div class='rowStack rowExtract'>
+				<div class='extract f-textSans'>The supreme court’s judgment on whether the government unlawfully blocked the publication of a series of secret letters written by Prince Charles is due to be made public on Thursday next week, court officials have announced.</div>
+			</div>
+			<div class='rowStack'>
+				<div class='annotation f-bodyCopy'>This was referring to TK topic that would mean this and this and this. maybe we need more more text to go here.  This was referring to TK topic that would mean this and this and this. maybe we need more more text to go here.</div>
+			</div>
+
+		</div>
+
 	</div>
+	<div class='colC f-textSans'><a href='#'>^ Back to top</a></div>
+
 
 
 </div>
@@ -15,7 +36,107 @@ b
 
 <style>
 
+.guLetter {
+	padding: 50px 0;
+	float: left;
+}
 
+.letterNumber {
+	color: #e6711b;
+	font-size: 56px;
+	width: 64px;
+	text-align: center;
+	float: left;
+}
+
+.letterInfo {
+	width: 75%;
+	float: left;
+}
+
+.letterImage {
+	width: 100%;
+	border: 1px solid #f6f6f6;
+	min-height: 100px;
+}
+
+.letterRecipient {
+	font-size: 24px;
+	color: #333;
+	margin: 10px 0;
+}
+
+.letter-topic {
+	font-size: 18px;
+}
+
+.letterImage {
+	margin: 10px 0 5px 0 ;
+}
+
+.viewDocument {
+	font-size: 14px;
+}
+
+.docLink {
+	text-decoration: none;
+}
+
+.row {
+	width: 100%;
+	border-bottom: 1px dotted #eaeaea;
+	
+}
+
+.rowStack {
+	width: 100%;
+
+}
+
+.rowExtract {
+	
+	background-size: 50px 50px;
+}
+
+.extract {
+
+	background: #fff5e9 url(@@assetPath@@/imgs/quote.svg) 10px 15px no-repeat;
+	background-size: 30px;
+	padding: 10px 10px 10px 50px;
+	font-size: 16px;
+	line-height: 24px;
+	color: #333;
+	min-height: 50px;
+
+}
+
+.annotation {
+	padding: 20px 0;
+	font-size: 16px;
+	line-height: 24px;
+	color: #333;
+}
+
+.colA, .colB {
+	float: left;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.colC {
+	float: left;
+	width: 100%;
+	padding-left: 20px;
+	color: #bdbdbd;
+	font-size: 14px;
+	text-align: right;
+}
+
+.colC a {
+	text-decoration: none;
+	color: #bdbdbd;
+	cursor: pointer;
+}
 
 
 @media (min-width: 440px){
@@ -23,19 +144,41 @@ b
 }
 
 @media (min-width: 740px){
-	
+	.letterNumber {
+		font-size: 60px;
+	}
+
+	.rowStack {
+		padding-left: 64px;
+		
+	}
+
+	.rowExtract {
+		background: url(@@assetPath@@/imgs/quote.svg) 0 20px no-repeat;
+		background-size: 50px;
+	}
+
+	.extract {
+		background: #fff5e9;
+		padding: 20px;
+	}
 }
 
 @media (min-width: 980px){
 	.colA {
 		width: 260px;
 		margin-right: 20px;
-		display: inline-block;
 	}
 
 	.colB {
 		width: 620px;
-		display: inline-block;
+	}
+
+	.letterNumber {
+		font-size: 72px;
+	}
+	.letterRecipient {
+		font-size: 30px;
 	}
 }
 
@@ -43,12 +186,23 @@ b
 	.colA {
 		width: 400px;
 		margin-right: 20px;
-		display: inline-block;
 	}
 
 	.colB {
 		width: 630px;
-		display: inline-block;
+	}
+
+	.letterNumber {
+		font-size: 96px;
+		width: 108px;
+		margin-right: 20px;
+	}
+
+	.letterInfo {
+		width: 195px;
+	}
+	.letterRecipient {
+		font-size: 32px;
 	}
 }
 
@@ -56,13 +210,27 @@ b
 @media (min-width: 1300px){
 	.colA {
 		width: 364px;
-		margin-right: 20px;
-		display: inline-block;
+
 	}
 
 	.colB {
-		width: 776px;
-		display: inline-block;
+		width: 722px;
+		padding-left: 84px;
+
+	}
+	.colC {
+		width: 110px;
+	}
+
+	.letterNumber {
+		font-size: 106px;
+	}
+
+	.letterInfo {
+		width: 235px;
+	}
+	.letterRecipient {
+		font-size: 36px;
 	}
 }
 

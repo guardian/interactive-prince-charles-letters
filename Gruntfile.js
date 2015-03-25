@@ -106,7 +106,7 @@ module.exports = function(grunt) {
         },
       },
       html: {
-        files: ['src/*.html', 'src/**/*.html'],
+        files: ['src/*.html', 'src/**/*.html', 'src/**/**/*.html'],
         tasks: ['copy', 'replace:local'],
         options: {
           spawn: false,
