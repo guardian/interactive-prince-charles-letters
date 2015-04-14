@@ -1,14 +1,18 @@
 <div class='guLetter' id='letter-{{id}}' >
 	
 
+
+
 	<div class='colA'>
-		<div class='letterNumber f-headline'>{{id}}
+		<div class='letterNumber f-headline'>
 			<twitterTemplate />
+			{{id}}
+			
 		</div>
 		<div class='letterInfo'>
 
-			<div class='letterDate f-textSans'>{{date}}</div>
-			<div class='letterRecipient f-bodyHeading'>{{recipient}}</div>
+			{{#date}}<div class='letterDate f-textSans'>{{date}}</div>{{/date}}
+			<div class='letterRecipient f-headline'>{{recipient}}</div>
 			{{#topic}}<div class='letterTopic f-bodyCopy'>{{topic}}</div>{{/topic}}
 			{{#pageImages:i}}
 				<div class='letterImage'><a class='docLink' href='{{docurl}}'><img src ='http://s3.amazonaws.com/s3.documentcloud.org/documents/{{docid}}/pages/{{doclink}}-p{{i+1}}-small.gif' ></a></div>
@@ -62,13 +66,14 @@
 	color: #e6711b;
 	font-size: 56px;
 	width: 64px;
-	text-align: left;
+	text-align: right;
 	float: left;
 }
 
 .letterInfo {
 	width: 75%;
 	float: left;
+	padding-left: 20px;
 }
 
 .letterImage {
@@ -85,10 +90,16 @@
 	height: auto;
 }
 
+.letterDate {
+	margin-bottom: 5px;
+	font-size: 14px;
+	color: #333;
+}
+
 .letterRecipient {
 	font-size: 24px;
 	color: #333;
-	margin: 10px 0;
+
 }
 
 .letter-topic {
@@ -107,9 +118,8 @@
 
 .row {
 	width: 100%;
-	border-bottom: 1px dotted #eaeaea;
-	margin-bottom: 20px;
-	
+	margin-bottom: 10px;
+	overflow: hidden;
 }
 
 .rowStack {
@@ -124,14 +134,14 @@
 
 .rowExtract {
 	
-	background-size: 50px 50px;
+
 }
 
 .extract {
 
-	background: #fff5e9 url(@@assetPath@@/imgs/quote.svg) 10px 15px no-repeat;
+	background: #efefec  10px 15px no-repeat;
 	background-size: 30px;
-	padding: 10px 10px 10px 50px;
+	padding: 10px 10px 10px 10px;
 	font-size: 16px;
 	line-height: 24px;
 	color: #333;
@@ -140,10 +150,11 @@
 }
 
 .annotation {
-	padding: 20px 0;
-	font-size: 16px;
-	line-height: 24px;
+
+	font-size: 14px;
+	line-height: 20px;
 	color: #333;
+	padding: 10px 10px 10px 84px;
 }
 
 .colA, .colB {
@@ -178,19 +189,21 @@
 	}
 
 	.rowStack {
-		padding-left: 64px;
+
 		
 	}
 
 	.rowExtract {
-		background: url(@@assetPath@@/imgs/quote.svg) 0 20px no-repeat;
 		background-size: 54px 50px;
 
 	}
 
 	.extract {
-		background: #fff5e9;
 		padding: 20px;
+	}
+
+	.annotation {
+		padding: 0;
 	}
 }
 
@@ -206,25 +219,40 @@
 
 	.letterNumber {
 		font-size: 60px;
+		width: 100%;
 	}
 	.letterRecipient {
 		font-size: 30px;
+	}
+
+	.rowStack {
+		width: 220px;
+		padding-right: 20px;
+		float: left;
+	}
+	.rowExtract {
+		width: 380px;
+		float: left;
 	}
 }
 
 @media (min-width: 1140px){
 	.colA {
-		width: 400px;
+		width: 220px;
 		margin-right: 20px;
 	}
 
 	.colB {
-		width: 630px;
+		width: 720px;
+	}
+
+	.colC {
+		width: 100px;
 	}
 
 	.letterNumber {
 		font-size: 60px;
-		width: 108px;
+		width: 64px;
 		margin-right: 20px;
 	}
 
@@ -232,20 +260,29 @@
 		width: 195px;
 	}
 	.letterRecipient {
-		font-size: 32px;
+		font-size: 30px;
+	}
+	.rowStack {
+		width: 240px;
+		padding-right: 20px;
+		float: left;
+	}
+	.rowExtract {
+		width: 460px;
+		float: left;
 	}
 }
 
 
 @media (min-width: 1300px){
 	.colA {
-		width: 364px;
+		width: 330px;
 
 	}
 
 	.colB {
-		width: 722px;
-		padding-left: 84px;
+		width: 760px;
+
 
 	}
 	.colC {
@@ -253,15 +290,26 @@
 	}
 
 	.letterNumber {
-		font-size: 72px;
+		font-size: 36px;
+		width: 90px;
 	}
 
 	.letterInfo {
-		width: 235px;
+		width: 220px;
 	}
 	.letterRecipient {
-		font-size: 36px;
+		font-size: 32px;
 	}
+	.rowStack {
+		width: 240px;
+		padding-right: 20px;
+		float: left;
+	}
+	.rowExtract {
+		width: 460px;
+		float: left;
+	}
+
 }
 
 

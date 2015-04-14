@@ -36,7 +36,7 @@ div {
 	}
 
 	.guContainer{
-		padding: 20px;
+		padding: 20px 0;
 	} 
 
 }
@@ -55,7 +55,7 @@ div {
 .guContainer {
 	width: 100%;
 	margin: 0 auto;
-	padding: 0 10px;
+
 }
 
 @media (min-width: 310px){
@@ -157,20 +157,20 @@ div {
 
 
 	.guContainer {
-		padding: 20px;
+		padding: 20px 0;
 
 		width: 1260px;
 	}
 
 	.guHeader {
 		.guContainer {
-			padding: 75px 20px 50px 128px;
+			padding: 75px 20px 50px 110px;
 		}
 	}
 
 	.guContent {
 		.guContainer {
-			padding: 50px 128px 50px 128px;
+			padding: 50px 110px ;
 		}
 	}
 
