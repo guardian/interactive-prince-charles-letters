@@ -5,84 +5,118 @@
 
 	<div class='colA'>
 		<div class='letterNumber f-headline'>
-			<twitterTemplate />
 			{{id}}
+			<twitterTemplate />
+			
 			
 		</div>
 		<div class='letterInfo'>
 
 			{{#date}}<div class='letterDate f-textSans'>{{date}}</div>{{/date}}
 			<div class='letterRecipient f-headline'>{{recipient}}</div>
-			{{#topic}}<div class='letterTopic f-bodyCopy'>{{topic}}</div>{{/topic}}
-			{{#pageImages:i}}
-				<div class='letterImage'><a class='docLink' href='{{docurl}}'><img src ='http://s3.amazonaws.com/s3.documentcloud.org/documents/{{docid}}/pages/{{doclink}}-p{{i+1}}-small.gif' ></a></div>
-			{{/pageImages}}
+			{{#notes}}<div class='letterTopic f-bodyCopy'>{{notes}}</div>{{/notes}}
+			{{#images:i}}
+				<div class='letterImage'><a class='docLink' href='{{docurl}}'><img src ='{{getImageUrl(this)}}' ></a></div>
+			{{/images}}
 			{{#docurl}}<a class='docLink' href='{{docurl}}'><div class='viewDocument f-textSans'>View original document</div></a>{{/docurl}}
 
 		</div>
 	</div>
 
 	<div class='colB'>
-		{{#rows}}
-		<div class='row'>
+	
+		<div class='annotations'>
 			
 
-			{{#excerpt}}
-			<div class='rowStack rowExtract'>
+			{{#annotations}}
 
-				<div class='extract f-textSans'>
+			<div class='a-row'>
+				<div class='extract f-textSans '>
 					{{#imageurl}}
-					<img src='{{imageurl}}' >
-				{{/imageurl}}
-					{{excerpt}}</div>
-			</div>
-			{{/excerpt}}
+						<img src='{{imageurl}}' >
+					{{/imageurl}}
+					{{text}}
+				</div>
+								<div class='annotation f-bodyCopy'>{{annotation}}</div>
 
-			{{#annotation}}
-			<div class='rowStack'>
-				<div class='annotation f-bodyCopy'>{{annotation}}</div>
 			</div>
-			{{/annotation}}
+
+			{{/annotations}}
+
 
 		</div>
-		{{/rows}}
+	
 
 	</div>
 	<div class='colC f-textSans'><a href='#'>^ Back to top</a></div>
-
-
 
 </div>
 
 
 <style>
 
+.colA {
+	float: left;
+	padding: 20px;
+}
+
+.colB {
+	background: #f6f6f6;
+	float: left;
+}
+
+.colC {
+	width: 100%;
+	float: left;
+	padding: 20px 0;
+	text-align: right;
+}
+
+.colC a {
+	text-decoration: none;
+	color: #dcdcdc;
+
+}
+
 .guLetter {
-	padding: 50px 0;
+	width: 100%;
+	margin-bottom: 50px;
 	float: left;
 }
 
 .letterNumber {
 	color: #e6711b;
-	font-size: 56px;
-	width: 64px;
-	text-align: right;
+	font-size: 36px;
+	width: 15%;
+	text-align: center;
 	float: left;
+	padding-top: 20px;
 }
 
 .letterInfo {
-	width: 75%;
+	width: 80%;
+	position: relative;
+	padding-top: 20px;
 	float: left;
-	padding-left: 20px;
+}
+
+.letterInfo::before {
+	content: '';
+	width: 108px;
+	height: 1px;
+	background: #dfdfdf;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 .letterImage {
-	width: 30%;
+	width: 150px;
 	border: 1px solid #f1f1f1;
 	min-height: 100px;
-	padding: 10px;
+
 	float: left;
-	margin: 5px 5px 5px 0 ;
+
 }
 
 .letterImage img {
@@ -99,11 +133,13 @@
 .letterRecipient {
 	font-size: 24px;
 	color: #333;
+	padding-bottom: 10px;
 
 }
 
-.letter-topic {
-	font-size: 18px;
+.letterTopic {
+	margin-bottom: 20px;
+	line-height: 22px;
 }
 
 .viewDocument {
@@ -139,9 +175,9 @@
 
 .extract {
 
-	background: #efefec  10px 15px no-repeat;
+	background: #ffffff;
 	background-size: 30px;
-	padding: 10px 10px 10px 10px;
+	padding: 20px;
 	font-size: 16px;
 	line-height: 24px;
 	color: #333;
@@ -154,29 +190,9 @@
 	font-size: 14px;
 	line-height: 20px;
 	color: #333;
-	padding: 10px 10px 10px 84px;
+	padding: 10px 10px 10px 70px;
 }
 
-.colA, .colB {
-	float: left;
-	width: 100%;
-	margin-bottom: 20px;
-}
-
-.colC {
-	float: left;
-	width: 100%;
-	padding-left: 20px;
-	color: #bdbdbd;
-	font-size: 14px;
-	text-align: right;
-}
-
-.colC a {
-	text-decoration: none;
-	color: #bdbdbd;
-	cursor: pointer;
-}
 
 
 @media (min-width: 440px){
@@ -184,131 +200,162 @@
 }
 
 @media (min-width: 740px){
+
+	.guLetter {
+		padding-bottom: 110px;
+
+	}
+
+
 	.letterNumber {
 		font-size: 60px;
 	}
 
-	.rowStack {
-
-		
-	}
-
-	.rowExtract {
-		background-size: 54px 50px;
-
-	}
-
-	.extract {
-		padding: 20px;
-	}
 
 	.annotation {
 		padding: 0;
 	}
+
+	.rowStack {
+		width: 100%;
+		float: left;
+	}
+
+	.annotation {
+		width: 160px;
+		float: left;
+		padding-left: 20px;
+	}
+	.extract {
+		width: 460px;
+		float: left;
+		font-size: 18px;
+		line-height: 30px;
+		padding: 10px 40px;
+	}
+
+	.a-row:first-child .extract {
+		padding: 40px 40px 20px 40px;
+	}
+
+	.a-row:last-child .extract {
+		padding: 20px 40px 40px 40px;
+	}
+
+
+
+
 }
 
 @media (min-width: 980px){
+
 	.colA {
-		width: 260px;
-		margin-right: 20px;
+		width: 220px;
+		padding: 0;
 	}
 
 	.colB {
-		width: 620px;
+		width: 640px;
+		padding-left: 20px;
 	}
+
+	.colC {
+		padding-left: 110px;
+	}
+
 
 	.letterNumber {
 		font-size: 60px;
 		width: 100%;
+		text-align: left;
 	}
 	.letterRecipient {
 		font-size: 30px;
 	}
 
-	.rowStack {
-		width: 220px;
-		padding-right: 20px;
-		float: left;
+	.annotation {
+		width: 160px;
 	}
-	.rowExtract {
-		width: 380px;
-		float: left;
-	}
+
+
 }
 
 @media (min-width: 1140px){
+
 	.colA {
 		width: 220px;
-		margin-right: 20px;
 	}
 
 	.colB {
-		width: 720px;
+		width: 880px;
+		padding-left: 20px;
 	}
 
 	.colC {
-		width: 100px;
+		padding-left: 110px;
 	}
 
 	.letterNumber {
 		font-size: 60px;
-		width: 64px;
-		margin-right: 20px;
+		text-align: left;
 	}
 
-	.letterInfo {
-		width: 195px;
-	}
+
 	.letterRecipient {
 		font-size: 30px;
 	}
-	.rowStack {
-		width: 240px;
-		padding-right: 20px;
+
+	.extract {
+		width: 640px;
 		float: left;
 	}
-	.rowExtract {
-		width: 460px;
-		float: left;
-	}
+
 }
 
 
 @media (min-width: 1300px){
-	.colA {
-		width: 330px;
 
-	}
-
-	.colB {
-		width: 760px;
-
-
-	}
-	.colC {
-		width: 110px;
+	.letterInfo	{
+		width: 240px;
+		margin-left: 110px;
+		float: none;
 	}
 
 	.letterNumber {
-		font-size: 36px;
-		width: 90px;
+		font-size: 60px;
+		width: 110px;
+		padding-right: 20px;
+		text-align: right;
 	}
 
-	.letterInfo {
-		width: 220px;
-	}
+
 	.letterRecipient {
 		font-size: 32px;
 	}
-	.rowStack {
-		width: 240px;
-		padding-right: 20px;
+
+	.letterImage {
+		width: 220px;
+	}
+
+	.colA {
+		width: 360px;
+	}
+
+	.colB {
+		width: 900px;
+	}
+
+	.colC {
+		padding-left: 110px;
+	}
+
+
+	.annotation {
+		width: 220px;
 		float: left;
 	}
-	.rowExtract {
-		width: 460px;
-		float: left;
-	}
+
+
 
 }
 
@@ -320,6 +367,11 @@
 
 
 	component.exports = {
+		data: {
+			getImageUrl: function(path){
+				return path.replace('size', 'normal')
+			}
+		},
 
 		computed: {
 			rows: function(){

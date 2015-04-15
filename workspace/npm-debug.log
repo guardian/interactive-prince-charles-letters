@@ -1,0 +1,139 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'archieml', '-g' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.35
+4 verbose cache add [ 'archieml', null ]
+5 verbose cache add name=undefined spec="archieml" args=["archieml",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'archieml',
+6 verbose parsed url   path: 'archieml',
+6 verbose parsed url   href: 'archieml' }
+7 silly lockFile 06a81bf1-archieml archieml
+8 verbose lock archieml /Users/fcage/.npm/06a81bf1-archieml.lock
+9 silly lockFile 06a81bf1-archieml archieml
+10 silly lockFile 06a81bf1-archieml archieml
+11 verbose addNamed [ 'archieml', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 9001de22-archieml archieml@
+14 verbose lock archieml@ /Users/fcage/.npm/9001de22-archieml.lock
+15 silly addNameRange { name: 'archieml', range: '*', hasData: false }
+16 verbose request where is /archieml
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id a1f084ab315ce21b
+19 verbose url raw /archieml
+20 verbose url resolving [ 'https://registry.npmjs.org/', './archieml' ]
+21 verbose url resolved https://registry.npmjs.org/archieml
+22 verbose request where is https://registry.npmjs.org/archieml
+23 info trying registry request attempt 1 at 15:05:48
+24 verbose etag "BWK4QA5EFA1PBI65TEFCWY2EB"
+25 http GET https://registry.npmjs.org/archieml
+26 http 304 https://registry.npmjs.org/archieml
+27 silly registry.get cb [ 304,
+27 silly registry.get   { date: 'Tue, 14 Apr 2015 14:05:48 GMT',
+27 silly registry.get     server: 'Apache',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     'last-modified': 'Tue, 14 Apr 2015 14:05:49 GMT',
+27 silly registry.get     'cache-control': 'max-age=60',
+27 silly registry.get     etag: '"BWK4QA5EFA1PBI65TEFCWY2EB"',
+27 silly registry.get     age: '0',
+27 silly registry.get     'x-served-by': 'cache-lcy1123-LCY',
+27 silly registry.get     'x-cache': 'MISS',
+27 silly registry.get     'x-cache-hits': '0',
+27 silly registry.get     'x-timer': 'S1429020348.784102,VS0,VE363',
+27 silly registry.get     vary: 'Accept',
+27 silly registry.get     'content-length': '0',
+27 silly registry.get     'keep-alive': 'timeout=10, max=50',
+27 silly registry.get     connection: 'Keep-Alive' } ]
+28 verbose etag https://registry.npmjs.org/archieml from cache
+29 silly addNameRange number 2 { name: 'archieml', range: '*', hasData: true }
+30 silly addNameRange versions [ 'archieml', [ '0.1.0', '0.1.2' ] ]
+31 verbose addNamed [ 'archieml', '0.1.2' ]
+32 verbose addNamed [ '0.1.2', '0.1.2' ]
+33 silly lockFile 29286c11-archieml-0-1-2 archieml@0.1.2
+34 verbose lock archieml@0.1.2 /Users/fcage/.npm/29286c11-archieml-0-1-2.lock
+35 silly lockFile 29286c11-archieml-0-1-2 archieml@0.1.2
+36 silly lockFile 29286c11-archieml-0-1-2 archieml@0.1.2
+37 silly lockFile 9001de22-archieml archieml@
+38 silly lockFile 9001de22-archieml archieml@
+39 silly resolved [ { name: 'archieml',
+39 silly resolved     version: '0.1.2',
+39 silly resolved     description: 'JavaScript parser for the Archie Markup Language (ArchieML)',
+39 silly resolved     homepage: 'http://archieml.org',
+39 silly resolved     keywords:
+39 silly resolved      [ 'archie',
+39 silly resolved        'markup',
+39 silly resolved        'language',
+39 silly resolved        'archieml',
+39 silly resolved        'aml',
+39 silly resolved        'text',
+39 silly resolved        'parser' ],
+39 silly resolved     bugs: { url: 'https://github.com/newsdev/archieml-js/issues' },
+39 silly resolved     author:
+39 silly resolved      { name: 'Michael Strickland',
+39 silly resolved        email: 'michael.strickland@nytimes.com' },
+39 silly resolved     devDependencies: { phantomjs: '1.9.11' },
+39 silly resolved     scripts: { test: 'node_modules/phantomjs/bin/phantomjs test/vendor/runner.js test/index.html?noglobals=true' },
+39 silly resolved     repository:
+39 silly resolved      { type: 'git',
+39 silly resolved        url: 'http://github.com/newsdev/archieml-js.git' },
+39 silly resolved     main: 'archieml.js',
+39 silly resolved     licenses: [ [Object] ],
+39 silly resolved     gitHead: '241373de5250277b2ca9a9ab08521b3226da937a',
+39 silly resolved     _id: 'archieml@0.1.2',
+39 silly resolved     _shasum: '2b984a47339c1a185f4e99d9a713e2e0166b36cd',
+39 silly resolved     _from: 'archieml@',
+39 silly resolved     _npmVersion: '2.0.0-alpha-5',
+39 silly resolved     _npmUser: { name: 'abstrctn', email: 'michael.c.strickland@gmail.com' },
+39 silly resolved     maintainers: [ [Object] ],
+39 silly resolved     dist:
+39 silly resolved      { shasum: '2b984a47339c1a185f4e99d9a713e2e0166b36cd',
+39 silly resolved        tarball: 'http://registry.npmjs.org/archieml/-/archieml-0.1.2.tgz' },
+39 silly resolved     directories: {},
+39 silly resolved     _resolved: 'https://registry.npmjs.org/archieml/-/archieml-0.1.2.tgz',
+39 silly resolved     readme: 'ERROR: No README data found!' } ]
+40 info install archieml@0.1.2 into /usr/local/lib
+41 info installOne archieml@0.1.2
+42 verbose lib/node_modules/archieml unbuild
+43 verbose tar unpack /Users/fcage/.npm/archieml/0.1.2/package.tgz
+44 silly lockFile 854496a5--local-lib-node-modules-archieml tar:///usr/local/lib/node_modules/archieml
+45 verbose lock tar:///usr/local/lib/node_modules/archieml /Users/fcage/.npm/854496a5--local-lib-node-modules-archieml.lock
+46 silly lockFile d1e78b02-e-npm-archieml-0-1-2-package-tgz tar:///Users/fcage/.npm/archieml/0.1.2/package.tgz
+47 verbose lock tar:///Users/fcage/.npm/archieml/0.1.2/package.tgz /Users/fcage/.npm/d1e78b02-e-npm-archieml-0-1-2-package-tgz.lock
+48 silly gunzTarPerm modes [ '777', '666' ]
+49 error Error: EACCES, mkdir '/usr/local/lib/node_modules/archieml'
+49 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/archieml']
+49 error   errno: 3,
+49 error   code: 'EACCES',
+49 error   path: '/usr/local/lib/node_modules/archieml',
+49 error   fstream_type: 'Directory',
+49 error   fstream_path: '/usr/local/lib/node_modules/archieml',
+49 error   fstream_class: 'DirWriter',
+49 error   fstream_stack:
+49 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+49 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+49 error      'Object.oncomplete (fs.js:108:15)' ] }
+50 error Please try running this command again as root/Administrator.
+51 error System Darwin 13.4.0
+52 error command "node" "/usr/local/bin/npm" "install" "archieml" "-g"
+53 error cwd /Users/fcage/projects/spider-memos/workspace
+54 error node -v v0.10.35
+55 error npm -v 1.4.28
+56 error path /usr/local/lib/node_modules/archieml
+57 error fstream_path /usr/local/lib/node_modules/archieml
+58 error fstream_type Directory
+59 error fstream_class DirWriter
+60 error code EACCES
+61 error errno 3
+62 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/archieml'
+63 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+63 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+63 error fstream_stack Object.oncomplete (fs.js:108:15)
+64 verbose exit [ 3, true ]

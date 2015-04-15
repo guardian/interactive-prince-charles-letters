@@ -1,0 +1,18 @@
+{
+  "name": "spider-memos",
+  "version": "0.0.1",
+  "description": "Guardian interactive project.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/guardian/spider-memos.git"
+  },
+  "author": "fcage",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "archieml": "^0.1.2",
+    "express": "^4.12.3",
+    "googleapis": "^2.0.2",
+    "html-entities": "^1.1.2",
+    "htmlparser2": "^3.8.2"
+  }
+}

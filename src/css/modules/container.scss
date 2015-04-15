@@ -41,8 +41,6 @@ div {
 
 }
 
-
-
 .guContent {
 	background: #f6f6f6;
 
@@ -50,12 +48,17 @@ div {
 
 .guContent .guContainer {
 	padding: 20px 0;
+
 }
 
 .guContainer {
 	width: 100%;
 	margin: 0 auto;
 
+}
+
+.guLetters {
+	background: #f6f6f6;
 }
 
 @media (min-width: 310px){
@@ -95,7 +98,7 @@ div {
 
 	.guContainer {
 			width: 700px;
-		padding: 0 15px;
+
 	}
 
 	.guHeader {
