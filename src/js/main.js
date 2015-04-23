@@ -5,8 +5,7 @@ define([
     'rvc!templates/shareTemplate',
     'rvc!templates/navTemplate',
     'rvc!templates/LetterTemplate',
-    'rvc!templates/twitterTemplate',
-    'json!data/letters.json'
+    'rvc!templates/twitterTemplate'
 ], function(
     Ractive,
     get,
@@ -14,15 +13,14 @@ define([
     ShareTemplate,
     NavTemplate,
     LetterTemplate,
-    TwitterTemplate,
-    data
+    TwitterTemplate
 ) {
    'use strict';
 
     function init(el, context, config, mediator) {
         // DEBUG: What we get given on boot
         //console.log(el, context, config, mediator);
-        console.log(data)
+
         var base = new AppTemplate({
             el: el,
             components: {
@@ -34,31 +32,30 @@ define([
         })
 
         base.on('navTemplate.scrollTo', function(e, id){
+            console.log()
             base.find('#letter-' + id).scrollIntoView();
         })
 
-        base.set('config', data.header);       
-        base.set('letters', Object.keys(data.letters).map(function(k) { return data.letters[k] }) );
+        //base.set('config', data.header);       
+        
         
 
-        // var SPREADSHEET_KEY = '1wtPiBdw2T5VGOIpWsXWxPsnCDrsE3hAsJ2H9LdG-G0A';
-        // get('http://interactive.guim.co.uk/spreadsheetdata/'+SPREADSHEET_KEY+'.json')
-        //     .then(JSON.parse)
-        //     .then(function(json){
 
+        get('http://interactive.guim.co.uk/docsdata-test/1TexIb-OqXWcSEWG2uUJ0hx1b3RJyndXDfDjus0uaRsY.json')
+            .then(JSON.parse)
+            .then(function(json){
                 
-        //         base.set('config', json.sheets.config[0]);       
-        //         base.set('letters', json.sheets.letters);
-        //         base.set('annotations', json.sheets.annotations);
-                
-        //         //parse url for deep linking
-        //         if(window.location.hash != ''){
-        //             var id = window.location.hash.replace('#letter', '');
-        //             base.find('#letter-' + id).scrollIntoView();
-        //         }
+                base.set('config', json.header);  
+                base.set('letters', Object.keys(json.letters).map(function(k) { return json.letters[k] }) );
+
+                //parse url for deep linking
+                if(window.location.hash != ''){
+                    var id = window.location.hash.replace('#letter', '');
+                    base.find('#letter-' + id).scrollIntoView();
+                }
 
 
-        //     });
+            });
 
     }
 

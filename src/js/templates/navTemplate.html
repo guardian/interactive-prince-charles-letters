@@ -5,7 +5,7 @@
 		<div class='navLabel f-headline'>Letters by recipient</div>
 		<div class='navBtns'>
 			{{#letters:i}}
-				<div on-click='scrollTo:{{id}}' class='navBtn f-bodyCopy'><div class='navNumber'></div><div class='navName'>{{recipient}}</div></div>
+				<div on-click='scrollTo:{{i+1}}' class='navBtn f-bodyCopy'><div class='navNumber'></div><div class='navName'>{{recipient}}</div></div>
 			{{/letters}}
 		</div>
 	</div>
@@ -43,6 +43,7 @@
 	font-size: 14px;
 	line-height: 30px;
 	color: #005689;
+	cursor: pointer;
 }
 
 .navNumber {
