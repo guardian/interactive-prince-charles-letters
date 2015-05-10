@@ -1,5 +1,6 @@
 define([
     'ractive',
+    'ractive-transitions-slide',
     'get',
     'rvc!templates/appTemplate',
     'rvc!templates/shareTemplate',
@@ -8,6 +9,7 @@ define([
     'rvc!templates/twitterTemplate'
 ], function(
     Ractive,
+    RactiveSlide,
     get,
     AppTemplate,
     ShareTemplate,
@@ -33,11 +35,13 @@ define([
                         navTemplate: NavTemplate,
                         letterTemplate: LetterTemplate,
                         twitterTemplate: TwitterTemplate
+                    },
+                    transitions: {
+                        slide: RactiveSlide
                     }
                 })
 
                 base.on('navTemplate.scrollTo', function(e, id){
-                    console.log()
                     base.find('#letter-' + id).scrollIntoView();
                 })
                 

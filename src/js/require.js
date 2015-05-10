@@ -18,7 +18,8 @@ require.config({
     propertyParser: "../../bower_components/requirejs-plugins/src/propertyParser",
     "Markdown.Converter": "../../bower_components/requirejs-plugins/lib/Markdown.Converter",
     text: "../../bower_components/text/text",
-    rvc: "../../bower_components/rvc/rvc"
+    rvc: "../../bower_components/rvc/dist/rvc",
+    "ractive-transitions-slide": "../../bower_components/ractive-transitions-slide/dist/ractive-transitions-slide"
   },
   packages: [
 

@@ -1,23 +1,22 @@
-<div class='guLetter' id='letter-{{id}}' >
+<div class='guLetter' id='letter-{{id +1}}' >
 	
 
 
 
 	<div class='colA'>
-		<div class='letterNumber f-headline'>
-			{{id}}
-			<twitterTemplate />
+		<div class='letterNumber f-textSans'>
+			<twitterTemplate /> Letter {{id+1}} of {{letters.length}}
+			
 			
 			
 		</div>
+		
 		<div class='letterInfo'>
 
-			{{#date}}<div class='letterDate f-textSans'>{{date}}</div>{{/date}}
+			{{#date}}<div class='letterDate f-bodyCopy'>{{date}}</div>{{/date}}
 			<div class='letterRecipient f-headline'>{{recipient}}</div>
 			{{#notes}}<div class='letterTopic f-bodyCopy'>{{notes}}</div>{{/notes}}
-			{{#images:i}}
-				<div class='letterImage'><a class='docLink' href='{{docurl}}'><img src ='{{getImageUrl(this)}}' ></a></div>
-			{{/images}}
+	
 			{{#docurl}}<a class='docLink' href='{{docurl}}'><div class='viewDocument f-textSans'>View original document</div></a>{{/docurl}}
 
 		</div>
@@ -26,23 +25,42 @@
 	<div class='colB'>
 	
 		<div class='annotations'>
-			
+			<div class='a-images {{#origVisible}}origVisible{{/origVisible}}'>
+				<div class='extract'>
+					{{^origVisible}}
+						<img src ='{{getImageUrl(images[0])}}' >
+						<img src='http://www.thetimes.co.uk/tto/multimedia/archive/00346/14786526_page_3_let_346471c.jpg' >
+						<div class='guButton f-textSans' on-click='showOrig'>See full letter</div>
+					{{/origVisible}}
 
-			{{#annotations}}
-
-			<div class='a-row'>
-				<div class='extract f-textSans '>
-					{{#imageurl}}
-						<img src='{{imageurl}}' >
-					{{/imageurl}}
-					{{{text}}}
+					{{#origVisible}}
+						
+						<div class='extractFull' intro='slide'>
+							{{#images:i}}
+							
+								<img src ='{{getImageUrl(this)}}' >
+							
+							{{/images}}
+						</div>
+					{{/origVisible}}
 				</div>
-								<div class='annotation f-bodyCopy'>{{annotation}}</div>
-
 			</div>
 
-			{{/annotations}}
+			<div class='g-annotations'>
+				{{#annotations:a}}
+				<div class='a-row'>
+					<div class='extract f-textSans paper-shadow'>
+						{{#imageurl}}
+							<img src='{{imageurl}}' >
+						{{/imageurl}}
+						{{{text}}}
+					</div>
+					<div class='annotation f-bodyCopy'>{{annotation}}</div>
 
+				</div>
+
+				{{/annotations}}
+			</div>
 
 		</div>
 	
@@ -86,11 +104,11 @@
 
 .letterNumber {
 	color: #e6711b;
-	font-size: 36px;
-	width: 15%;
-	text-align: center;
-	float: left;
-	padding-top: 20px;
+	font-size: 16px;
+	position: relative;
+	padding-bottom: 10px;
+	line-height: 30px;
+	vertical-align: top;
 }
 
 .letterInfo {
@@ -100,13 +118,13 @@
 	float: left;
 }
 
-.letterInfo::before {
+.letterNumber::after {
 	content: '';
 	width: 108px;
 	height: 1px;
 	background: #dfdfdf;
 	position: absolute;
-	top: 0;
+	bottom: 0;
 	left: 0;
 }
 
@@ -182,7 +200,7 @@
 	line-height: 24px;
 	color: #333;
 	min-height: 50px;
-
+	position: relative;
 }
 
 .annotation {
@@ -193,7 +211,27 @@
 	padding: 10px 10px 10px 70px;
 }
 
+.paper-shadow {
+  	position:relative;       
+    -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.05) inset;
+       -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.05) inset;
+          box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.05) inset;
+}
 
+.a-images {
+	height: 220px;
+	overflow: hidden;
+	width: 100%;
+	position: relative;
+}
+
+.a-images img {
+	width: 100%;
+}
+
+.a-images.origVisible {
+	height: auto;
+}
 
 @media (min-width: 440px){
 	
@@ -204,11 +242,6 @@
 	.guLetter {
 		padding-bottom: 110px;
 
-	}
-
-
-	.letterNumber {
-		font-size: 60px;
 	}
 
 
@@ -234,15 +267,40 @@
 		padding: 10px 40px;
 	}
 
-	.a-row:first-child .extract {
+	
+
+	.g-annotations .a-row:first-child .extract {
 		padding: 40px 40px 20px 40px;
+		/*margin-top: 10px;
+		-webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.05) inset;
+		-moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.05) inset;*/
+		
+		
 	}
 
-	.a-row:last-child .extract {
+	.g-annotations .paper-shadow{
+		box-shadow: 0 0 0 rgba(0, 0, 0, 0), 1px 0px 15px rgba(0, 0, 0, 0.1);
+	}
+
+	.g-annotations .a-row:last-child .extract {
 		padding: 20px 40px 40px 40px;
 	}
 
 
+
+	.a-images .extractFull {
+		min-height: 220px;
+	}
+
+	.guButton {
+		position: absolute;
+		top: 180px;
+		left: 20px;
+	}
+
+	.a-images {
+		padding: 0 20px 0 0;
+	}
 
 
 }
@@ -255,7 +313,7 @@
 	}
 
 	.colB {
-		width: 640px;
+		width: 720px;
 		padding-left: 20px;
 	}
 
@@ -263,18 +321,15 @@
 		padding-left: 110px;
 	}
 
-
-	.letterNumber {
-		font-size: 60px;
-		width: 100%;
-		text-align: left;
-	}
 	.letterRecipient {
 		font-size: 30px;
 	}
+	.extract {
+		width: 560px;
+	}
 
 	.annotation {
-		width: 160px;
+		width: 120px;
 	}
 
 
@@ -287,19 +342,13 @@
 	}
 
 	.colB {
-		width: 880px;
+		width: 860px;
 		padding-left: 20px;
 	}
 
 	.colC {
 		padding-left: 110px;
 	}
-
-	.letterNumber {
-		font-size: 60px;
-		text-align: left;
-	}
-
 
 	.letterRecipient {
 		font-size: 30px;
@@ -308,6 +357,7 @@
 	.extract {
 		width: 640px;
 		float: left;
+
 	}
 
 }
@@ -316,18 +366,10 @@
 @media (min-width: 1300px){
 
 	.letterInfo	{
-		width: 240px;
-		margin-left: 110px;
+		width: 100%;
+	
 		float: none;
 	}
-
-	.letterNumber {
-		font-size: 60px;
-		width: 110px;
-		padding-right: 20px;
-		text-align: right;
-	}
-
 
 	.letterRecipient {
 		font-size: 32px;
@@ -338,11 +380,11 @@
 	}
 
 	.colA {
-		width: 360px;
+		width: 240px;
 	}
 
 	.colB {
-		width: 900px;
+		width: 880px;
 	}
 
 	.colC {
@@ -360,6 +402,8 @@
 }
 
 
+
+
 </style>
 
 <script>
@@ -370,7 +414,8 @@
 		data: {
 			getImageUrl: function(path){
 				return path.replace('size', 'normal')
-			}
+			},
+			origVisible: false
 		},
 
 		computed: {
@@ -390,9 +435,14 @@
 				
 			}
 		},
-		decorators: {
-			
-	
+		
+		onrender: function(){
+			this.on({
+				showOrig: function(){
+					this.toggle('origVisible');
+				}
+			})
+
 		}
 
 	}
