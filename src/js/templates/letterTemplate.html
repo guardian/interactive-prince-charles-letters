@@ -29,8 +29,7 @@
 				<div class='extract'>
 					{{^origVisible}}
 						<img src ='{{getImageUrl(images[0])}}' >
-						<img src='http://www.thetimes.co.uk/tto/multimedia/archive/00346/14786526_page_3_let_346471c.jpg' >
-						<div class='guButton f-textSans' on-click='showOrig'>See full letter</div>
+						<div class='guButton f-textSans' on-click='showOrig'>See original letter</div>
 					{{/origVisible}}
 
 					{{#origVisible}}
@@ -145,7 +144,7 @@
 
 .letterImage img {
 	width: 100%;
-	height: auto;
+	float: left;
 }
 
 .letterDate {
@@ -233,6 +232,7 @@
 
 .a-images img {
 	width: 100%;
+	float: left;
 }
 
 .a-images.origVisible {
@@ -242,6 +242,11 @@
 .guButton.seeAll{
 	padding: 10px 20px;
   	margin: 20px 0 0 20px;
+}
+
+.extractFull img, .extract img {
+	width: 100%;
+	height: auto;
 }
 
 @media (min-width: 440px){
