@@ -5,7 +5,8 @@ define([
     'rvc!templates/appTemplate',
     'rvc!templates/shareTemplate',
     'rvc!templates/navTemplate',
-    'rvc!templates/LetterTemplate',
+    'rvc!templates/letterTemplate',
+    'rvc!templates/rowTemplate',
     'rvc!templates/twitterTemplate'
 ], function(
     Ractive,
@@ -15,6 +16,7 @@ define([
     ShareTemplate,
     NavTemplate,
     LetterTemplate,
+    RowTemplate,
     TwitterTemplate
 ) {
    'use strict';
@@ -34,19 +36,25 @@ define([
                         shareTemplate: ShareTemplate,
                         navTemplate: NavTemplate,
                         letterTemplate: LetterTemplate,
-                        twitterTemplate: TwitterTemplate
+                        twitterTemplate: TwitterTemplate,
+                        rowTemplate: RowTemplate
                     },
                     transitions: {
                         slide: RactiveSlide
                     }
                 })
 
-                base.on('navTemplate.scrollTo', function(e, id){
-                    base.find('#letter-' + id).scrollIntoView();
+                base.on({
+                    'navTemplate.scrollTo': function(e, id){
+                        base.find('#letter-' + id).scrollIntoView();
+                    }
                 })
                 
-                base.set('config', json.header);  
-                base.set('letters', Object.keys(json.letters).map(function(k) { return json.letters[k] }) );
+                base.set({
+                    config: json.header,
+                    letters: Object.keys(json.letters).map(function(k) { return json.letters[k] }),
+                    windowWidth: window.innerWidth
+                });
 
                 //parse url for deep linking
                 if(window.location.hash != ''){

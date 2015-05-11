@@ -2,7 +2,7 @@
 <div class='navContainer'>
 
 	<div class='nacType'>
-		<div class='navLabel f-headline'>Letters by recipient</div>
+		<div class='navLabel f-subHeader'>Letters by recipient</div>
 		<div class='navBtns'>
 			{{#letters:i}}
 				<div on-click='scrollTo:{{i+1}}' class='navBtn f-bodyCopy'><div class='navNumber'></div><div class='navName'>{{recipient}}</div></div>
@@ -17,24 +17,17 @@
 
 .navContainer {
 	padding: 0 10px;
+	overflow: auto;
 }
 
 .navLabel {
 	font-size: 18px;
 	position: relative;
-	padding-top: 15px;
+
 	padding-bottom: 15px;
 }
 
-.navLabel::before {
-	content: '';
-	width: 108px;
-	height: 1px;
-	background: #dfdfdf;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
+
 
 .navBtn {
 	display: inline-block;
@@ -42,7 +35,7 @@
 	margin-right: 15px;
 	font-size: 14px;
 	line-height: 30px;
-	color: #005689;
+	color: #fff;
 	cursor: pointer;
 }
 
@@ -52,7 +45,7 @@
 
 
 	border-radius: 20px;
-	background: #e6711b url(@@assetPath@@/imgs/lettericon.svg) center no-repeat;
+	background: rgba(255, 255, 255, 0.2) url(@@assetPath@@/imgs/lettericon.svg) center no-repeat;
 	background-size: 20px;
 
 	float: left;
@@ -77,19 +70,21 @@
 	}
 
 	.navLabel {
-		font-size: 24px;
+		font-size: 22px;
 	}
 
 	.navBtn {
 		font-size: 18px;
-		padding-bottom: 15px;
+		padding-bottom: 20px;
 		width: 220px;
+		margin-right: 20px;
 	}
 	.navNumber {
 		width: 30px;
 		height: 30px;
 		line-height: 30px;
 		font-size: 14px;
+		margin-right: 10px;
 
 	}
 
@@ -100,14 +95,25 @@
 }
 
 @media (min-width: 1140px){
-	.navLabel {
-		font-size: 30px;
-	}
+	
 
 }
 
 
 @media (min-width: 1300px){
+
+	.navLabel {
+		width: 220px;
+		float: left;
+		padding-right: 20px;
+	}
+
+	.navBtns {
+		width: 960px;
+		float: left;
+		margin-left: 20px;
+	}
+
 
 }
 

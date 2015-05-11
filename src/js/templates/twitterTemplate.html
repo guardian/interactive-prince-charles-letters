@@ -40,7 +40,7 @@
 			this.on({
 				shareTwt: function(){
 					console.log(this.get('config').shareurl)
-					var shareUrl = this.get('config').shareurl + '#letter' + this.get('id');
+					var shareUrl = this.get('config').shareurl + '#letter' + (this.get('id') + 1);
 					var text = this.get('config').headline  + ": " + this.get('recipient');
 					var shareLink = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent( shareUrl ) + '&text=' + encodeURIComponent( text );
 					window.open(shareLink, 'twitter', 'width=626,height=436');

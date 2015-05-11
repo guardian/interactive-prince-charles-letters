@@ -14,7 +14,7 @@
 		<div class='letterInfo'>
 
 			{{#date}}<div class='letterDate f-bodyCopy'>{{date}}</div>{{/date}}
-			<div class='letterRecipient f-headline'>{{recipient}}</div>
+			<div class='letterRecipient f-subHeader'>{{recipient}}</div>
 			{{#notes}}<div class='letterTopic f-bodyCopy'>{{notes}}</div>{{/notes}}
 	
 			{{#docurl}}<a class='docLink' href='{{docurl}}'><div class='viewDocument f-textSans'>View original document</div></a>{{/docurl}}
@@ -48,19 +48,25 @@
 
 			<div class='g-annotations'>
 				{{#annotations:a}}
-				<div class='a-row'>
-					<div class='extract f-textSans paper-shadow'>
-						{{#imageurl}}
-							<img src='{{imageurl}}' >
-						{{/imageurl}}
-						{{{text}}}
-					</div>
-					<div class='annotation f-bodyCopy'>{{annotation}}</div>
+				
+						{{#a == 0}}
+							<rowTemplate />
+						{{/a}}
+						{{#a > 0 && showFullLetter}}
+							<rowTemplate />
+						{{/a}}
 
-				</div>
+
+
+	
 
 				{{/annotations}}
+
+				{{^showFullLetter}}
+					<div class='guButton seeAll f-textSans' on-click='mobileShowLetter'>See full transcription</div>
+				{{/showFullLetter}}
 			</div>
+
 
 		</div>
 	
@@ -98,7 +104,7 @@
 
 .guLetter {
 	width: 100%;
-	margin-bottom: 50px;
+	border-bottom: 4px solid #eaeaea;
 	float: left;
 }
 
@@ -122,7 +128,7 @@
 	content: '';
 	width: 108px;
 	height: 1px;
-	background: #dfdfdf;
+	background: #eaeaea;
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -213,9 +219,9 @@
 
 .paper-shadow {
   	position:relative;       
-    -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.05) inset;
-       -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.05) inset;
-          box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.05) inset;
+    -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.05) ;
+       -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.05) ;
+          box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.05) ;
 }
 
 .a-images {
@@ -233,6 +239,11 @@
 	height: auto;
 }
 
+.guButton.seeAll{
+	padding: 10px 20px;
+  	margin: 20px 0 0 20px;
+}
+
 @media (min-width: 440px){
 	
 }
@@ -240,8 +251,9 @@
 @media (min-width: 740px){
 
 	.guLetter {
-		padding-bottom: 110px;
-
+		padding-bottom: 60px;
+		border-bottom: 1px solid #eaeaea;
+		margin-bottom: 20px;
 	}
 
 
@@ -258,6 +270,7 @@
 		width: 160px;
 		float: left;
 		padding-left: 20px;
+		padding-top: 20px;
 	}
 	.extract {
 		width: 460px;
@@ -265,6 +278,10 @@
 		font-size: 18px;
 		line-height: 30px;
 		padding: 10px 40px;
+	}
+
+	.g-annotations .a-row:first-child .annotation {
+		padding-top: 40px;
 	}
 
 	
@@ -279,8 +296,25 @@
 	}
 
 	.g-annotations .paper-shadow{
-		box-shadow: 0 0 0 rgba(0, 0, 0, 0), 1px 0px 15px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 0 -10px rgba(0, 0, 0, 0), 1px 0px -15px rgba(0, 0, 0, 0.1);
+		position: relative;
 	}
+	.g-annotations .paper-shadow:after{
+		position: absolute;
+		top: -10px;
+		left: 0;
+		height: 20px;
+		background: #fff;
+		width: 100%;
+		content: ' ';
+
+	}
+
+	.g-annotations .a-row:first-child .paper-shadow:after{
+		display: none;
+	}
+
+
 
 	.g-annotations .a-row:last-child .extract {
 		padding: 20px 40px 40px 40px;
@@ -292,7 +326,7 @@
 		min-height: 220px;
 	}
 
-	.guButton {
+	.extract .guButton {
 		position: absolute;
 		top: 180px;
 		left: 20px;
@@ -380,15 +414,19 @@
 	}
 
 	.colA {
-		width: 240px;
+		width: 220px;
 	}
 
 	.colB {
-		width: 880px;
+		width: 960px;
 	}
 
 	.colC {
 		padding-left: 110px;
+	}
+
+	.extract {
+		width: 700px;
 	}
 
 
@@ -415,7 +453,9 @@
 			getImageUrl: function(path){
 				return path.replace('size', 'normal')
 			},
-			origVisible: false
+			origVisible: false,
+			fullLetter: false
+
 		},
 
 		computed: {
@@ -433,6 +473,14 @@
 					return new Array(p)
 				}
 				
+			},
+			showFullLetter: function(){
+				var w = this.get('windowWidth');
+				if(w > 760){
+					return true;
+				} else {
+					return this.get('fullLetter');
+				}
 			}
 		},
 		
@@ -440,7 +488,11 @@
 			this.on({
 				showOrig: function(){
 					this.toggle('origVisible');
-				}
+				},
+                'mobileShowLetter': function(){
+                    this.toggle('fullLetter')
+                }
+
 			})
 
 		}

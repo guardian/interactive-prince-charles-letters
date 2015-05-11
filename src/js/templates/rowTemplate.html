@@ -1,0 +1,11 @@
+<div class='a-row'>
+	<div class='extract f-textSans paper-shadow'>
+		{{#imageurl}}
+			<img src='{{imageurl}}' >
+		{{/imageurl}}
+		{{{text.replace(/\n/g, '<br>')}}}
+	</div>
+	{{#showFullLetter}}
+		<div class='annotation f-bodyCopy'>{{annotation}}</div>
+	{{/showFullLetter}}
+</div>
