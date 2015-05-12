@@ -62,6 +62,11 @@ define([
                     base.find('#letter-' + id).scrollIntoView();
                 }
 
+                var footerEls = document.getElementsByClassName('l-footer');
+                for(var i = 0; i < footerEls.length; i++){
+                    footerEls[i].style.display = "block";
+                }
+
 
             });
 

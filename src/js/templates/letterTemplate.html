@@ -28,7 +28,7 @@
 			<div class='a-images {{#origVisible}}origVisible{{/origVisible}}'>
 				<div class='extract'>
 					{{^origVisible}}
-						<img src ='{{getImageUrl(images[0])}}' >
+						<img src ='{{getImageUrl(1, images[0])}}' >
 						<div class='guButton f-textSans' on-click='showOrig'>See original letter</div>
 					{{/origVisible}}
 
@@ -37,7 +37,7 @@
 						<div class='extractFull' intro='slide'>
 							{{#images:i}}
 							
-								<img src ='{{getImageUrl(this)}}' >
+								<img src ='{{getImageUrl(i+1, this)}}' >
 							
 							{{/images}}
 						</div>
@@ -455,8 +455,8 @@
 
 	component.exports = {
 		data: {
-			getImageUrl: function(path){
-				return path.replace('size', 'normal')
+			getImageUrl: function(i, path){
+				return path.replace('{size}', 'normal').replace('{page}', i)
 			},
 			origVisible: false,
 			fullLetter: false
