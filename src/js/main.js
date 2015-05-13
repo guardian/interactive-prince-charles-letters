@@ -24,9 +24,9 @@ define([
     function init(el, context, config, mediator) {
         // DEBUG: What we get given on boot
         //console.log(el, context, config, mediator);
-
-
-        get('http://interactive.guim.co.uk/docsdata-test/1TexIb-OqXWcSEWG2uUJ0hx1b3RJyndXDfDjus0uaRsY.json')
+        //http://interactive.guim.co.uk/docsdata-test/1TexIb-OqXWcSEWG2uUJ0hx1b3RJyndXDfDjus0uaRsY.json'
+        var url = 'http://interactive.guim.co.uk/docsdata-test/1H2Vw_WkKACcvsF3A1fgfmAqIoVGNNoTwPzYK7vWMcnc.json'
+        get(url)
             .then(JSON.parse)
             .then(function(json){
 
