@@ -27,6 +27,8 @@ div {
 		color: #333;
 		margin: 0;
 		font-size: 42px;
+		line-height: 1em;
+		padding-bottom: 20px;
 	}
 
 	p {
@@ -61,6 +63,22 @@ div {
 
 .guLetters {
 	background: #f6f6f6;
+}
+
+.headerShare {
+	width: 100%;
+	margin-right: 20px;
+	padding-top: 10px;
+	float: left;
+	border-top: 1px solid #f1f1f1;
+}
+
+.dateline {
+	border-bottom: 1px solid #f1f1f1;
+	width: 100%;
+	min-height: 20px;
+	font-size: 14px;
+	margin-bottom: 10px;
 }
 
 @media (min-width: 310px){
@@ -112,6 +130,7 @@ div {
 	}
 
 
+
 }
 
 @media (min-width: 980px){
@@ -132,7 +151,9 @@ div {
 		}
 	}
 
-
+	.headerTitle {
+		width: 640px;
+	}
 
 
 
@@ -156,6 +177,14 @@ div {
 		padding-top: 10px;
 		float: left;
 		border-top: 1px solid #f1f1f1;
+	}
+
+	.dateline {
+		border-bottom: 1px solid #f1f1f1;
+		width: 100%;
+		min-height: 40px;
+		font-size: 14px;
+		margin-bottom: 10px;
 	}
 
 	.headerTitle {
@@ -184,7 +213,7 @@ div {
 
 	.guHeader {
 		.guContainer {
-			padding: 75px 20px 20px 0px;
+			padding: 40px 20px 20px 0px;
 		}
 	}
 
@@ -204,7 +233,7 @@ div {
 
 	.headerTitle {
 		float: left;
-		width: 860px;
+		width: 600px;
 		padding-bottom: 60px;
 	}
 

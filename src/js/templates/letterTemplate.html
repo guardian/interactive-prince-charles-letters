@@ -29,7 +29,7 @@
 				<div class='extract'>
 					{{^origVisible}}
 						<img src ='{{getImageUrl(1, images[0])}}' >
-						<div class='guButton f-textSans' on-click='showOrig'>See original letter</div>
+						<div class='guButton f-textSans' on-click='showOrig'>View letter</div>
 					{{/origVisible}}
 
 					{{#origVisible}}
@@ -62,7 +62,7 @@
 				{{/annotations}}
 
 				{{^showFullLetter}}
-					<div class='guButton seeAll f-textSans' on-click='mobileShowLetter'>See full transcription</div>
+					<div class='guButton seeAll f-textSans' on-click='mobileShowLetter'>Read more of this letter</div>
 				{{/showFullLetter}}
 			</div>
 

@@ -2,7 +2,9 @@
 
     <div class='guSlice guHeader'>
         <div class='guContainer'>
+
             <div class='headerShare'>
+                <div class='dateline f-textSans'>Wednesday 13 May 2015</div>
                 <shareTemplate />
             </div>
             <div class='headerTitle'>
@@ -36,10 +38,7 @@
 
 
 <style>
-    .guHeader .guContainer {
-        background: url(@@assetPath@@/imgs/prince.jpg) right bottom no-repeat;
-        background-size: 200px auto;
-    }
+
 
     mark {
         background: #EA8D48;
@@ -59,9 +58,21 @@
     }
 
 
+
+
+
     @media (min-width: 740px){
         .guHeader .guContainer {
             background-size: contain;
+        }
+        .guHeader .guContainer {
+            background-size: 500px auto;
+        }
+    }
+    @media (min-width: 980px){
+        .guHeader .guContainer {
+            background: url(@@assetPath@@/imgs/prince.jpg) right bottom no-repeat;
+            background-size: 500px auto;
         }
     }
 </style>
