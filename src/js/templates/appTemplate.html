@@ -9,7 +9,7 @@
             </div>
             <div class='headerTitle'>
                 <h1 class='f-headline'>{{config.headline}}</h1>
-                <p class='f-bodyCopy'>{{config.standfirst}}</p>
+                <p class='f-bodyCopy'>{{{config.standfirst}}}</p>
             </div>
 
            
@@ -69,6 +69,13 @@
             background-size: 500px auto;
         }
     }
+    @media (min-width: 980px){
+        .guHeader .guContainer {
+            background: url(@@assetPath@@/imgs/prince.jpg) right bottom no-repeat;
+            background-size: 300px auto;
+        }
+    }
+
     @media (min-width: 980px){
         .guHeader .guContainer {
             background: url(@@assetPath@@/imgs/prince.jpg) right bottom no-repeat;

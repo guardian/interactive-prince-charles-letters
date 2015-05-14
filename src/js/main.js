@@ -29,7 +29,7 @@ define([
         get(url)
             .then(JSON.parse)
             .then(function(json){
-
+           
                  var base = new AppTemplate({
                     el: el,
                     components: {

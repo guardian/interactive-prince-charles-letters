@@ -5,7 +5,9 @@
 		<div class='navLabel f-subHeader'>Letters by recipient</div>
 		<div class='navBtns'>
 			{{#letters:i}}
+				{{^nav}}
 				<div on-click='scrollTo:{{i+1}}' class='navBtn f-bodyCopy'><div class='navNumber'></div><div class='navName'>{{recipient}}</div></div>
+				{{/nav}}
 			{{/letters}}
 		</div>
 	</div>

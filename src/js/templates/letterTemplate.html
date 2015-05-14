@@ -5,7 +5,7 @@
 
 	<div class='colA'>
 		<div class='letterNumber f-textSans'>
-			<twitterTemplate /> Letter {{id+1}} of {{letters.length}}
+			<twitterTemplate /> 
 			
 			
 			
@@ -17,7 +17,7 @@
 			<div class='letterRecipient f-subHeader'>{{recipient}}</div>
 			{{#notes}}<div class='letterTopic f-bodyCopy'>{{notes}}</div>{{/notes}}
 	
-		<!-- 	{{#docurl}}<a class='docLink' href='{{docurl}}'><div class='viewDocument f-textSans'>View original document</div></a>{{/docurl}} -->
+			{{#docurl}}<a class='docLink' href='{{docurl}}'><div class='viewDocument f-textSans'>See full document</div></a>{{/docurl}}
 
 		</div>
 	</div>
@@ -157,6 +157,7 @@
 
 .letterRecipient {
 	font-size: 24px;
+	line-height: 24px;
 	color: #333;
 	padding-bottom: 10px;
 
@@ -374,6 +375,7 @@
 
 	.letterRecipient {
 		font-size: 30px;
+		line-height: 30px;
 	}
 	.extract {
 		width: 560px;
@@ -403,6 +405,7 @@
 
 	.letterRecipient {
 		font-size: 30px;
+
 	}
 
 	.extract {
@@ -424,6 +427,7 @@
 
 	.letterRecipient {
 		font-size: 32px;
+		line-height: 32px;
 	}
 
 	.letterImage {

@@ -3,9 +3,15 @@
 		{{#imageurl}}
 			<img src='{{imageurl}}' >
 		{{/imageurl}}
-		{{{text.replace(/\n\n\n/g, '<br><br>')}}}
+		{{{text.replace(/[\r\n]+/g, '\n\n').trim()}}}
 	</div>
 	{{#showFullLetter}}
 		<div class='annotation f-bodyCopy'>{{annotation}}</div>
 	{{/showFullLetter}}
 </div>
+
+<style>
+.extract {
+	white-space: pre-wrap;
+}
+</style>
